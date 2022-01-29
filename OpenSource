@@ -22,13 +22,6 @@ local tab4 = window:AddTab("Auto Upgrades")
 local tab5 = window:AddTab("Auto Rebirth")
 
 
-game:GetService("RunService").Stepped:Connect(function()
-    for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Ui.CenterFrame:GetChildren()) do
-        if v.Name == "Error" then
-            v:Destroy()
-        end
-    end
-end)
 
 
 
@@ -114,16 +107,9 @@ tog2 = value
 task.spawn(function()
 while tog2 do wait()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace")["__SETTINGS"]["__EGG"][selected].EGG.Position)
-    end
-end)
-task.spawn(function()
-    while tog2 do wait()
-local ohString1 = "EGG"
-local ohInstance2 = workspace.__SETTINGS.__INTERACT.EGG
-local ohString3 = "1"
-local ohTable4 = {}
-
-game:GetService("ReplicatedStorage").Remotes.ClientRemote:InvokeServer(ohString1, ohInstance2, ohString3, ohTable4)
+    keypress(0x45)
+    wait(0.5)
+    firesignal(game:GetService("Players").LocalPlayer.PlayerGui.Ui.CenterFrame.BuyEgg.Frame.Buy1.Button.MouseButton1Click)
         end
     end)
 end)
