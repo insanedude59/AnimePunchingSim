@@ -69,6 +69,14 @@ for i,v in pairs(require(game:GetService("ReplicatedStorage").Modules.Rebirths))
 end
 
 
+local rebirthnumbers = {}
+for i,v in pairs(require(game:GetService("ReplicatedStorage").Modules.Rebirths)) do
+      if v.Amount then
+          table.insert(rebirthnumbers,i)
+    end
+end
+
+
 
 
 tab1:AddSwitch("Auto Punch",function(value)
@@ -134,15 +142,15 @@ local sa = tab5:AddDropdown("Select Rebirth",function(value)
     selectrebirth = value
 end)
 
-for i = 1,#rebirths do
-    sa:Add(rebirths[i])
+for i = 1,#rebirthnumbers do
+    local p = sa:Add(rebirthnumbers[i])
 end
 
 
 tab5:AddSwitch("Auto Rebirth",function(value)
+    
     tog3 = value
     while tog3 and selectrebirth ~= "Select Rebirth" do wait()
-
 local ohString1 = "Rebirths"
 local ohNumber2 = tonumber(selectrebirth)
 
@@ -169,7 +177,7 @@ tab4:AddSwitch("Auto Upgrade",function(value)
     while tog4 do wait()
     for i = 1,#numberupgarde do
         if upgrades[i] == selectupgrade then
-
+        
 local ohString1 = "Upgrade"
 local ohNumber2 = i
 
