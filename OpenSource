@@ -75,9 +75,7 @@ end
 tab1:AddSwitch("Auto Punch",function(value)
     tog = value
     while tog do wait()
-local ohString1 = "Tapping"
-
-game:GetService("ReplicatedStorage").Remotes.ClientRemote:InvokeServer(ohString1)
+game:GetService("ReplicatedStorage").Remotes.TappingEvent:FireServer()
     end
 end)
 
